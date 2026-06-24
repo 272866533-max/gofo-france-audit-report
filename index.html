@@ -125,6 +125,7 @@
   .deadline-48h { background: #fce4e4; color: #c0392b; }
   .deadline-week { background: #fdebd0; color: #d35400; }
   .deadline-month { background: #fef9e7; color: #b7950b; }
+  .deadline-quarter { background: #e8f8f5; color: #1abc9c; }
 
   /* Role Table */
   .role-tag { display: inline-block; padding: 1px 8px; border-radius: 8px; font-size: 12px; font-weight: 600; }
@@ -178,32 +179,13 @@
 
 <div class="container">
 
-<!-- TL;DR -->
-<div class="card">
-  <div class="card-title">📌 TL;DR 执行摘要</div>
-  <div class="tldr-grid">
-    <div class="tldr-item">
-      <strong>🎯 核心结论</strong>
-      <p>审计聚焦5项核心问题，<strong>刑事/合规两条红线并行</strong>。<strong>虚假证件（F6）</strong>涉及法国刑法非法劳工条款、<strong>超期用工CDI认定风险（F4）</strong>可能引发劳动法庭集体诉讼。考勤与工时管理（F1+F2）为整条流程断链，需一体化整改。</p>
-    </div>
-    <div class="tldr-item">
-      <strong>⚡ 关键行动</strong>
-      <p>T0（48h）暂停涉假证件批次+供应商书面追责留痕 → T1（本周）推进用工排查/考勤数字化/费用管控/供应商制度设计 → T2（本月内）完成制度性建设。</p>
-    </div>
-    <div class="tldr-item">
-      <strong>⚖️ 合规提醒</strong>
-      <p>各事项由对应职能部门按权限推进，涉及重大风险决策建议内部合规审核后执行。</p>
-    </div>
-  </div>
-</div>
-
 <!-- Core Conclusion Card -->
 <div class="card">
   <div class="card-title">🎯 核心结论卡片</div>
   <div class="info-grid">
     <div class="info-cell">
       <div class="label">推荐方案</div>
-      <div class="value">T0紧急(2项) → T1本周(4项) → T2本月(4项)</div>
+      <div class="value">T0本月(2项) → T1次月(4项) → T2季度(4项)</div>
     </div>
     <div class="info-cell">
       <div class="label">合规状态</div>
@@ -215,7 +197,7 @@
     </div>
     <div class="info-cell">
       <div class="label">时间窗</div>
-      <div class="value">T0 48h → T1 本周 → T2 本月</div>
+      <div class="value">T0 本月 → T1 次月 → T2 季度</div>
     </div>
   </div>
 </div>
@@ -229,15 +211,15 @@
         <tr><th>优先级</th><th>#</th><th>发现项</th><th>涉及部门</th><th>财务影响</th><th>合规</th><th>时间要求</th><th>负责方</th></tr>
       </thead>
       <tbody>
-        <tr class="p0-row"><td class="priority-col" style="color:var(--p0-color)">🚨 P0-T0</td><td>F6</td><td><strong>虚假证件临时工（刑事风险）</strong></td><td>Staffmatch</td><td>连带赔偿</td><td><span class="badge badge-p0">🔴高</span></td><td>48h暂停+追责</td><td>HRBP+仓长</td></tr>
-        <tr class="p0-row"><td class="priority-col" style="color:var(--p0-color)">🚨 P0-T0</td><td>F4</td><td><strong>持续用工预警缺失（CDI认定风险）</strong></td><td>Startpeople</td><td>€50K~€200K+/人</td><td><span class="badge badge-p0">🔴高</span></td><td>本周排查</td><td>HRBP组</td></tr>
-        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F1+F2</td><td><strong>考勤与工时管理系统性漏洞</strong></td><td>Startpeople/Staffmatch/J&T, HSSC</td><td>持续成本泄露</td><td><span class="badge badge-p0">🔴高</span></td><td>本周一体化整改</td><td>仓长+HRBP+HSSC+HR-IT</td></tr>
-        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F7</td><td>供应商评估制度缺失</td><td>HRBP组</td><td>间接成本</td><td><span class="badge badge-p2">🟡中</span></td><td>本周制度框架</td><td>HRBP+采购</td></tr>
-        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F5</td><td>法定假日发票审核缺失</td><td>Staffmatch</td><td>€3,066.62</td><td><span class="badge badge-p2">🟡中</span></td><td>本周审核设计</td><td>HRBP+财务</td></tr>
-        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F1+F2</td><td>考勤数据治理SOP建设</td><td>巴黎仓, HSSC, HR-IT</td><td>—</td><td>—</td><td>本月制度落地</td><td>HRBP+仓长+HSSC</td></tr>
-        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F4</td><td>持续用工预警机制</td><td>HRBP+IT</td><td>—</td><td>—</td><td>本月系统部署</td><td>HRBP+IT</td></tr>
-        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F7</td><td>供应商全生命周期管理</td><td>HRBP+采购</td><td>—</td><td>—</td><td>本月制度发布</td><td>HRBP+采购</td></tr>
-        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F5</td><td>发票审核机制</td><td>财务+HR</td><td>—</td><td>—</td><td>本月流程固化</td><td>财务+HR+HRBP</td></tr>
+        <tr class="p0-row"><td class="priority-col" style="color:var(--p0-color)">🚨 P0-T0</td><td>F6</td><td><strong>虚假证件临时工（刑事风险）</strong></td><td>Staffmatch</td><td>连带赔偿</td><td><span class="badge badge-p0">🔴高</span></td><td>本月暂停+追责</td><td>HRBP+仓长</td></tr>
+        <tr class="p0-row"><td class="priority-col" style="color:var(--p0-color)">🚨 P0-T0</td><td>F4</td><td><strong>持续用工预警缺失（CDI认定风险）</strong></td><td>Startpeople</td><td>€50K~€200K+/人</td><td><span class="badge badge-p0">🔴高</span></td><td>本月排查</td><td>HRBP组</td></tr>
+        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F1+F2</td><td><strong>考勤与工时管理系统性漏洞</strong></td><td>Startpeople/Staffmatch/J&T, HSSC</td><td>持续成本泄露</td><td><span class="badge badge-p0">🔴高</span></td><td>次月一体化整改</td><td>仓长+HRBP+HSSC+HR-IT</td></tr>
+        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F7</td><td>供应商评估制度缺失</td><td>HRBP组</td><td>间接成本</td><td><span class="badge badge-p2">🟡中</span></td><td>次月制度框架</td><td>HRBP+采购</td></tr>
+        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F5</td><td>法定假日发票审核缺失</td><td>Staffmatch</td><td>€3,066.62</td><td><span class="badge badge-p2">🟡中</span></td><td>次月审核设计</td><td>HRBP+财务</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F1+F2</td><td>考勤数据治理SOP建设</td><td>巴黎仓, HSSC, HR-IT</td><td>—</td><td>—</td><td>季度制度落地</td><td>HRBP+仓长+HSSC</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F4</td><td>持续用工预警机制</td><td>HRBP+IT</td><td>—</td><td>—</td><td>季度系统部署</td><td>HRBP+IT</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F7</td><td>供应商全生命周期管理</td><td>HRBP+采购</td><td>—</td><td>—</td><td>季度制度发布</td><td>HRBP+采购</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F5</td><td>发票审核机制</td><td>财务+HR</td><td>—</td><td>—</td><td>季度流程固化</td><td>财务+HR+HRBP</td></tr>
       </tbody>
     </table>
   </div>
@@ -248,7 +230,7 @@
   <div class="card-title">✅ 行动清单</div>
 
   <div class="action-group">
-    <div class="action-group-title action-group-t0">🚨 T0 — 立即行动（48小时内）</div>
+    <div class="action-group-title action-group-t0">🚨 T0 — 本月行动</div>
 
     <div class="action-card">
       <div class="action-header">
@@ -256,7 +238,7 @@
         <span class="action-owner">法国HRBP + 仓长</span>
       </div>
       <div class="action-desc">法国刑法L.8256-1最高5年监禁+€15,000/人罚款</div>
-      <span class="action-deadline deadline-48h">⏰ 48h</span>
+      <span class="action-deadline deadline-48h">⏰ 本月</span>
     </div>
 
     <div class="action-card">
@@ -265,12 +247,12 @@
         <span class="action-owner">法国HRBP组</span>
       </div>
       <div class="action-desc">留痕存档，明确虚假证件造成的后果由供应商承担，作为评估与追责依据</div>
-      <span class="action-deadline deadline-48h">⏰ 48h</span>
+      <span class="action-deadline deadline-48h">⏰ 本月</span>
     </div>
   </div>
 
   <div class="action-group">
-    <div class="action-group-title action-group-t1">🔴 T1 — 本周内启动</div>
+    <div class="action-group-title action-group-t1">🔴 T1 — 次月行动</div>
 
     <div class="action-card">
       <div class="action-header">
@@ -278,7 +260,7 @@
         <span class="action-owner">HRBP + HSSC</span>
       </div>
       <div class="action-desc">法国劳动法L.1251-40，超期可被认定为CDI，涉及Startpeople/Staffmatch/J&T</div>
-      <span class="action-deadline deadline-week">⏰ 本周</span>
+      <span class="action-deadline deadline-week">⏰ 次月</span>
     </div>
 
     <div class="action-card">
@@ -292,7 +274,7 @@
         ③ 对审计抽样异常时段（4-5月）做一次专项复核<br>
         ④ 平台自动对账替代人工逐月核查，仅保留季度随机抽检
       </div>
-      <span class="action-deadline deadline-week">⏰ 本周</span>
+      <span class="action-deadline deadline-week">⏰ 次月</span>
     </div>
 
     <div class="action-card">
@@ -301,7 +283,7 @@
         <span class="action-owner">HRBP + 财务</span>
       </div>
       <div class="action-desc">从源头管控类似费用再发生，已发生€3,066.62作为沉没成本处理，重点防再犯</div>
-      <span class="action-deadline deadline-week">⏰ 本周</span>
+      <span class="action-deadline deadline-week">⏰ 次月</span>
     </div>
 
     <div class="action-card">
@@ -310,12 +292,12 @@
         <span class="action-owner">HRBP + 采购</span>
       </div>
       <div class="action-desc">含响应率、到岗及时率、人员满足率等指标。当前满足率93.33%~77.65%，差异超15pp</div>
-      <span class="action-deadline deadline-week">⏰ 本周</span>
+      <span class="action-deadline deadline-week">⏰ 次月</span>
     </div>
   </div>
 
   <div class="action-group">
-    <div class="action-group-title action-group-t2">🟡 T2 — 本月内建设</div>
+    <div class="action-group-title action-group-t2">🟡 T2 — 季度行动</div>
 
     <div class="action-card">
       <div class="action-header">
@@ -323,7 +305,7 @@
         <span class="action-owner">HRBP + 仓长 + HSSC</span>
       </div>
       <div class="action-desc">基于AI考勤识别平台，明确拍照上传流程+双人复核+平台存档+HSSC对接+休息时间自动扣减+季度抽检</div>
-      <span class="action-deadline deadline-month">⏰ 本月</span>
+      <span class="action-deadline deadline-month">⏰ 当季</span>
     </div>
 
     <div class="action-card">
@@ -332,7 +314,7 @@
         <span class="action-owner">HRBP + IT</span>
       </div>
       <div class="action-desc">12/15/18月三级自动预警系统，覆盖F4</div>
-      <span class="action-deadline deadline-month">⏰ 本月</span>
+      <span class="action-deadline deadline-month">⏰ 当季</span>
     </div>
 
     <div class="action-card">
@@ -341,7 +323,7 @@
         <span class="action-owner">HRBP + 采购</span>
       </div>
       <div class="action-desc">准入→日常监督→季度评估→淘汰，覆盖F7</div>
-      <span class="action-deadline deadline-month">⏰ 本月</span>
+      <span class="action-deadline deadline-month">⏰ 当季</span>
     </div>
 
     <div class="action-card">
@@ -350,7 +332,7 @@
         <span class="action-owner">财务 + HR + HRBP组</span>
       </div>
       <div class="action-desc">法定假日工时校验节点+供应商费用合规审查，覆盖F5</div>
-      <span class="action-deadline deadline-month">⏰ 本月</span>
+      <span class="action-deadline deadline-month">⏰ 当季</span>
     </div>
   </div>
 </div>
@@ -375,7 +357,7 @@
 <div class="card">
   <div class="card-title">⚠️ 合规提醒 &amp; 假设</div>
   <div class="compliance-item">
-    <strong>虚假证件事项（F6）</strong>：法国刑法L.8256-1规定最高5年监禁和€15,000/人罚款，<strong>必须在48小时内暂停涉事批次用工</strong>并由法务介入，不可延迟。
+    <strong>虚假证件事项（F6）</strong>：法国刑法L.8256-1规定最高5年监禁和€15,000/人罚款，<strong>必须在本月内暂停涉事批次用工</strong>并完成追责留痕，不可延迟。
   </div>
   <div class="compliance-item" style="border-color:#e67e22;background:#fdf2e9;">
     <strong>CDI认定风险（F4）</strong>：法国劳动法L.1251-40规定超18个月临时工应转为CDI，审计已发现多名Startpeople派遣工在12天内出勤7-10次，需立即排查全员。
@@ -385,22 +367,6 @@
   </div>
   <div class="compliance-item" style="border-color:#b7950b;background:#fef9e7;">
     <strong>供应商管理（F7）</strong>：当前满足率差距超过15个百分点，无客观评价机制，供应商更换/淘汰无数据支撑。
-  </div>
-</div>
-
-<!-- Member Index -->
-<div class="card">
-  <div class="card-title">📚 成员产出索引</div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-    <div style="padding:14px;border-radius:8px;background:#ebf5fb;font-size:13px;">
-      <strong>💰 薪析</strong><br>薪酬分析师<br><span style="color:#555">财务量化分析 — 直接损失€3,066.62，CDI风险百万级</span>
-    </div>
-    <div style="padding:14px;border-radius:8px;background:#fdf2e9;font-size:13px;">
-      <strong>🏗️ 组织</strong><br>组织发展顾问<br><span style="color:#555">流程制度分析 — 制度真空/责任断层，建议制度化建设</span>
-    </div>
-    <div style="padding:14px;border-radius:8px;background:#fdedec;font-size:13px;">
-      <strong>⚖️ 入职</strong><br>HR运营专员<br><span style="color:#555">合规风控分析 — 引用法条L.1251-40/L.3171-2/L.3121-16</span>
-    </div>
   </div>
 </div>
 
