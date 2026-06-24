@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOFO EXPRESS 法国区劳务外包专项审计 — 整改行动清单</title>
+<style>
+  :root {
+    --p0-color: #e74c3c;
+    --p1-color: #e67e22;
+    --p2-color: #f1c40f;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #2c3e50;
+    --muted: #7f8c8d;
+    --border: #e0e4e8;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --radius: 10px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 0;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 40px 0 32px;
+    margin-bottom: 28px;
+  }
+  .header .container { padding-bottom: 0; }
+  .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+  .header .meta { color: #a0aec0; font-size: 14px; display: flex; flex-wrap: wrap; gap: 16px; }
+  .header .meta span { display: inline-flex; align-items: center; gap: 4px; }
+
+  /* Badge */
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge-p0 { background: #fce4e4; color: #c0392b; }
+  .badge-p1 { background: #fdebd0; color: #d35400; }
+  .badge-p2 { background: #fef9e7; color: #b7950b; }
+  .badge-new { background: #d4efdf; color: #1e8449; }
+  .badge-up { background: #d6eaf8; color: #21618c; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* TL;DR */
+  .tldr-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .tldr-item {
+    padding: 16px 18px;
+    border-radius: 8px;
+    border-left: 4px solid;
+  }
+  .tldr-item:nth-child(1) { border-color: #3498db; background: #ebf5fb; }
+  .tldr-item:nth-child(2) { border-color: #e67e22; background: #fdf2e9; }
+  .tldr-item:nth-child(3) { border-color: #e74c3c; background: #fdedec; }
+  .tldr-item strong { display: block; font-size: 14px; margin-bottom: 4px; }
+  .tldr-item p { font-size: 14px; color: #444; }
+
+  /* Core Conclusion Card */
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .info-cell { padding: 14px 16px; border-radius: 8px; background: #f8f9fa; }
+  .info-cell .label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .info-cell .value { font-size: 15px; font-weight: 600; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: #f8f9fa; font-weight: 600; font-size: 13px; color: var(--muted); white-space: nowrap; }
+  tr:hover td { background: #f8f9fa; }
+  .priority-col { text-align: center; font-weight: 700; white-space: nowrap; }
+  .p0-row td:first-child { border-left: 3px solid var(--p0-color); }
+  .p1-row td:first-child { border-left: 3px solid var(--p1-color); }
+  .p2-row td:first-child { border-left: 3px solid var(--p2-color); }
+
+  /* Action Items */
+  .action-group { margin-bottom: 24px; }
+  .action-group-title {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px; border-radius: 8px;
+    font-size: 16px; font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .action-group-t0 { background: #fce4e4; color: #c0392b; }
+  .action-group-t1 { background: #fdebd0; color: #d35400; }
+  .action-group-t2 { background: #fef9e7; color: #b7950b; }
+
+  .action-card {
+    padding: 16px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+  }
+  .action-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  .action-card .action-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px; }
+  .action-card .action-title { font-weight: 600; font-size: 14px; flex: 1; }
+  .action-card .action-owner { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .action-card .action-desc { font-size: 13px; color: #555; margin-top: 4px; line-height: 1.5; }
+  .action-card .action-deadline { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 10px; display: inline-block; }
+  .deadline-48h { background: #fce4e4; color: #c0392b; }
+  .deadline-week { background: #fdebd0; color: #d35400; }
+  .deadline-month { background: #fef9e7; color: #b7950b; }
+
+  /* Role Table */
+  .role-tag { display: inline-block; padding: 1px 8px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+  .role-new { background: #d4efdf; color: #1e8449; }
+  .role-up { background: #d6eaf8; color: #21618c; }
+
+  /* Compliance */
+  .compliance-item {
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #e74c3c;
+    background: #fdf2f2;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .compliance-item strong { color: #c0392b; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    padding: 30px 0 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+    .container { padding: 16px 12px; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <h1>GOFO EXPRESS 法国区劳务外包专项审计<br>整改行动清单与优先级排序</h1>
+    <div class="meta">
+      <span>📅 2026-06-24</span>
+      <span>📂 政策咨询</span>
+      <span>👥 薪析 · 组织 · 入职</span>
+      <span>🔐 机密</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TL;DR -->
+<div class="card">
+  <div class="card-title">📌 TL;DR 执行摘要</div>
+  <div class="tldr-grid">
+    <div class="tldr-item">
+      <strong>🎯 核心结论</strong>
+      <p>审计聚焦5项核心问题，<strong>刑事/合规两条红线并行</strong>。<strong>虚假证件（F6）</strong>涉及法国刑法非法劳工条款、<strong>超期用工CDI认定风险（F4）</strong>可能引发劳动法庭集体诉讼。考勤与工时管理（F1+F2）为整条流程断链，需一体化整改。</p>
+    </div>
+    <div class="tldr-item">
+      <strong>⚡ 关键行动</strong>
+      <p>T0（48h）暂停涉假证件批次+供应商书面追责留痕 → T1（本周）推进用工排查/考勤数字化/费用管控/供应商制度设计 → T2（本月内）完成制度性建设。</p>
+    </div>
+    <div class="tldr-item">
+      <strong>⚖️ 合规提醒</strong>
+      <p>各事项由对应职能部门按权限推进，涉及重大风险决策建议内部合规审核后执行。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Core Conclusion Card -->
+<div class="card">
+  <div class="card-title">🎯 核心结论卡片</div>
+  <div class="info-grid">
+    <div class="info-cell">
+      <div class="label">推荐方案</div>
+      <div class="value">T0紧急(2项) → T1本周(4项) → T2本月(4项)</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">合规状态</div>
+      <div class="value">✅ 内部推进，按权限审批</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">预算影响</div>
+      <div class="value">≥€3,066.62已确认；CDI风险€100K~数百万</div>
+    </div>
+    <div class="info-cell">
+      <div class="label">时间窗</div>
+      <div class="value">T0 48h → T1 本周 → T2 本月</div>
+    </div>
+  </div>
+</div>
+
+<!-- Priority Matrix -->
+<div class="card">
+  <div class="card-title">📊 审计发现与优先级综合矩阵</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>优先级</th><th>#</th><th>发现项</th><th>涉及部门</th><th>财务影响</th><th>合规</th><th>时间要求</th><th>负责方</th></tr>
+      </thead>
+      <tbody>
+        <tr class="p0-row"><td class="priority-col" style="color:var(--p0-color)">🚨 P0-T0</td><td>F6</td><td><strong>虚假证件临时工（刑事风险）</strong></td><td>Staffmatch</td><td>连带赔偿</td><td><span class="badge badge-p0">🔴高</span></td><td>48h暂停+追责</td><td>HRBP+仓长</td></tr>
+        <tr class="p0-row"><td class="priority-col" style="color:var(--p0-color)">🚨 P0-T0</td><td>F4</td><td><strong>持续用工预警缺失（CDI认定风险）</strong></td><td>Startpeople</td><td>€50K~€200K+/人</td><td><span class="badge badge-p0">🔴高</span></td><td>本周排查</td><td>HRBP组</td></tr>
+        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F1+F2</td><td><strong>考勤与工时管理系统性漏洞</strong></td><td>Startpeople/Staffmatch/J&T, HSSC</td><td>持续成本泄露</td><td><span class="badge badge-p0">🔴高</span></td><td>本周一体化整改</td><td>仓长+HRBP+HSSC+HR-IT</td></tr>
+        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F7</td><td>供应商评估制度缺失</td><td>HRBP组</td><td>间接成本</td><td><span class="badge badge-p2">🟡中</span></td><td>本周制度框架</td><td>HRBP+采购</td></tr>
+        <tr class="p1-row"><td class="priority-col" style="color:var(--p1-color)">🔴 P1-T1</td><td>F5</td><td>法定假日发票审核缺失</td><td>Staffmatch</td><td>€3,066.62</td><td><span class="badge badge-p2">🟡中</span></td><td>本周审核设计</td><td>HRBP+财务</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F1+F2</td><td>考勤数据治理SOP建设</td><td>巴黎仓, HSSC, HR-IT</td><td>—</td><td>—</td><td>本月制度落地</td><td>HRBP+仓长+HSSC</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F4</td><td>持续用工预警机制</td><td>HRBP+IT</td><td>—</td><td>—</td><td>本月系统部署</td><td>HRBP+IT</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F7</td><td>供应商全生命周期管理</td><td>HRBP+采购</td><td>—</td><td>—</td><td>本月制度发布</td><td>HRBP+采购</td></tr>
+        <tr class="p2-row"><td class="priority-col" style="color:var(--p2-color)">🟡 P2-T2</td><td>F5</td><td>发票审核机制</td><td>财务+HR</td><td>—</td><td>—</td><td>本月流程固化</td><td>财务+HR+HRBP</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Action Items -->
+<div class="card">
+  <div class="card-title">✅ 行动清单</div>
+
+  <div class="action-group">
+    <div class="action-group-title action-group-t0">🚨 T0 — 立即行动（48小时内）</div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">1. 暂停Staffmatch涉虚假证件批次临时工上岗，核查全员证件真实性</span>
+        <span class="action-owner">法国HRBP + 仓长</span>
+      </div>
+      <div class="action-desc">法国刑法L.8256-1最高5年监禁+€15,000/人罚款</div>
+      <span class="action-deadline deadline-48h">⏰ 48h</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">2. 内部建档记录虚假证件事件，要求Staffmatch出具书面说明与承诺函</span>
+        <span class="action-owner">法国HRBP组</span>
+      </div>
+      <div class="action-desc">留痕存档，明确虚假证件造成的后果由供应商承担，作为评估与追责依据</div>
+      <span class="action-deadline deadline-48h">⏰ 48h</span>
+    </div>
+  </div>
+
+  <div class="action-group">
+    <div class="action-group-title action-group-t1">🔴 T1 — 本周内启动</div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">3. 排查所有派遣工实际服务时长，识别超18个月人员</span>
+        <span class="action-owner">HRBP + HSSC</span>
+      </div>
+      <div class="action-desc">法国劳动法L.1251-40，超期可被认定为CDI，涉及Startpeople/Staffmatch/J&T</div>
+      <span class="action-deadline deadline-week">⏰ 本周</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">4. 考勤与工时管理一体化整改</span>
+        <span class="action-owner">仓长 + IT + HSSC + HRBP</span>
+      </div>
+      <div class="action-desc">
+        ① 基于已上线的AI考勤识别工具，确保每日全量拍照上传并核验<br>
+        ② HSSC安排AI考勤工具培训+考试，确保录入准确性与拍摄清晰度<br>
+        ③ 对审计抽样异常时段（4-5月）做一次专项复核<br>
+        ④ 平台自动对账替代人工逐月核查，仅保留季度随机抽检
+      </div>
+      <span class="action-deadline deadline-week">⏰ 本周</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">5. 启动法定假日发票审核机制设计</span>
+        <span class="action-owner">HRBP + 财务</span>
+      </div>
+      <div class="action-desc">从源头管控类似费用再发生，已发生€3,066.62作为沉没成本处理，重点防再犯</div>
+      <span class="action-deadline deadline-week">⏰ 本周</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">6. 启动供应商管理评估制度框架设计</span>
+        <span class="action-owner">HRBP + 采购</span>
+      </div>
+      <div class="action-desc">含响应率、到岗及时率、人员满足率等指标。当前满足率93.33%~77.65%，差异超15pp</div>
+      <span class="action-deadline deadline-week">⏰ 本周</span>
+    </div>
+  </div>
+
+  <div class="action-group">
+    <div class="action-group-title action-group-t2">🟡 T2 — 本月内建设</div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">7. 完善《考勤数据治理与监督SOP》</span>
+        <span class="action-owner">HRBP + 仓长 + HSSC</span>
+      </div>
+      <div class="action-desc">基于AI考勤识别平台，明确拍照上传流程+双人复核+平台存档+HSSC对接+休息时间自动扣减+季度抽检</div>
+      <span class="action-deadline deadline-month">⏰ 本月</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">8. 建立《持续用工风险预警机制》</span>
+        <span class="action-owner">HRBP + IT</span>
+      </div>
+      <div class="action-desc">12/15/18月三级自动预警系统，覆盖F4</div>
+      <span class="action-deadline deadline-month">⏰ 本月</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">9. 建立《供应商全生命周期管理制度》</span>
+        <span class="action-owner">HRBP + 采购</span>
+      </div>
+      <div class="action-desc">准入→日常监督→季度评估→淘汰，覆盖F7</div>
+      <span class="action-deadline deadline-month">⏰ 本月</span>
+    </div>
+
+    <div class="action-card">
+      <div class="action-header">
+        <span class="action-title">10. 建立发票审核机制</span>
+        <span class="action-owner">财务 + HR + HRBP组</span>
+      </div>
+      <div class="action-desc">法定假日工时校验节点+供应商费用合规审查，覆盖F5</div>
+      <span class="action-deadline deadline-month">⏰ 本月</span>
+    </div>
+  </div>
+</div>
+
+<!-- Roles -->
+<div class="card">
+  <div class="card-title">👥 新增/强化职责建议</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>角色</th><th>类型</th><th>职责定位</th><th>负责事项</th></tr></thead>
+      <tbody>
+        <tr><td>仓库文员/仓库考勤专员</td><td><span class="role-tag role-new">🆕 新增</span></td><td>每日AI考勤平台拍照上传与核验，确保存档完整性和准确性</td><td>F1+F2</td></tr>
+        <tr><td>HRBP组</td><td><span class="role-tag role-up">🔄 强化</span></td><td>供应商全生命周期管理（准入、监督、评估、淘汰）</td><td>F7</td></tr>
+        <tr><td>HSSC组</td><td><span class="role-tag role-up">🔄 强化</span></td><td>薪酬核算与工时录入双人复核，确保数据与实际一致</td><td>F1+F2</td></tr>
+        <tr><td>HR-IT组</td><td><span class="role-tag role-new">🆕 新增</span></td><td>AI考勤工具迭代优化、平台系统维护、数据安全管理</td><td>F1+F2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Compliance -->
+<div class="card">
+  <div class="card-title">⚠️ 合规提醒 &amp; 假设</div>
+  <div class="compliance-item">
+    <strong>虚假证件事项（F6）</strong>：法国刑法L.8256-1规定最高5年监禁和€15,000/人罚款，<strong>必须在48小时内暂停涉事批次用工</strong>并由法务介入，不可延迟。
+  </div>
+  <div class="compliance-item" style="border-color:#e67e22;background:#fdf2e9;">
+    <strong>CDI认定风险（F4）</strong>：法国劳动法L.1251-40规定超18个月临时工应转为CDI，审计已发现多名Startpeople派遣工在12天内出勤7-10次，需立即排查全员。
+  </div>
+  <div class="compliance-item" style="border-color:#3498db;background:#ebf5fb;">
+    <strong>考勤与工时管理（F1+F2）</strong>：手工考勤+休息未扣减+核算错误形成流程断链。已上线AI考勤识别平台，需确保每日拍照上传全覆盖，结合季度抽检堵住断链。
+  </div>
+  <div class="compliance-item" style="border-color:#b7950b;background:#fef9e7;">
+    <strong>供应商管理（F7）</strong>：当前满足率差距超过15个百分点，无客观评价机制，供应商更换/淘汰无数据支撑。
+  </div>
+</div>
+
+<!-- Member Index -->
+<div class="card">
+  <div class="card-title">📚 成员产出索引</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+    <div style="padding:14px;border-radius:8px;background:#ebf5fb;font-size:13px;">
+      <strong>💰 薪析</strong><br>薪酬分析师<br><span style="color:#555">财务量化分析 — 直接损失€3,066.62，CDI风险百万级</span>
+    </div>
+    <div style="padding:14px;border-radius:8px;background:#fdf2e9;font-size:13px;">
+      <strong>🏗️ 组织</strong><br>组织发展顾问<br><span style="color:#555">流程制度分析 — 制度真空/责任断层，建议制度化建设</span>
+    </div>
+    <div style="padding:14px;border-radius:8px;background:#fdedec;font-size:13px;">
+      <strong>⚖️ 入职</strong><br>HR运营专员<br><span style="color:#555">合规风控分析 — 引用法条L.1251-40/L.3171-2/L.3121-16</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  本报告由 HR 运营团队 AI 协作生成 · 涉及重大合规决策请由 HR 负责人复核
+</div>
+
+</div>
+</body>
+</html>
